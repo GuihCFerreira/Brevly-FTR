@@ -9,6 +9,7 @@ import {
 import { env } from '@/env'
 import { createShortenedUrlRoute } from './routes/create-shortened-url'
 import { deleteShortenedUrlRoute } from './routes/delete-shortened-url'
+import { exportShortenedUrlsReportRoute } from './routes/export-shortened-urls-report'
 import { getOriginalUrlByShortenedUrlRoute } from './routes/get-original-url-by-shortened-url'
 import { getShortenedUrlsRoute } from './routes/get-shortened-urls'
 
@@ -41,6 +42,7 @@ server.register(getShortenedUrlsRoute)
 server.register(getOriginalUrlByShortenedUrlRoute)
 server.register(deleteShortenedUrlRoute)
 server.register(createShortenedUrlRoute)
+server.register(exportShortenedUrlsReportRoute)
 
 server
   .listen({ port: env.PORT })
