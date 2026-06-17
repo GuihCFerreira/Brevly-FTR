@@ -1,15 +1,15 @@
-import { getShortenedUrls } from "@/app/functions/get-shortened-urls";
-import { unwrapEither } from "@/shared/either";
-import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
-import z from "zod";
+import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
+import z from 'zod'
+import { getShortenedUrls } from '@/app/functions/get-shortened-urls'
+import { unwrapEither } from '@/shared/either'
 
-export const getShortenedUrlsRoute: FastifyPluginAsyncZod = async (server) => {
+export const getShortenedUrlsRoute: FastifyPluginAsyncZod = async server => {
   server.get(
-    "/shortened-urls",
+    '/shortened-urls',
     {
       schema: {
-        summary: "Get shortened URLs",
-        tags: ["Shortened URLs"],
+        summary: 'Get shortened URLs',
+        tags: ['Shortened URLs'],
         response: {
           200: z.array(
             z.object({
@@ -18,16 +18,16 @@ export const getShortenedUrlsRoute: FastifyPluginAsyncZod = async (server) => {
               originalUrl: z.url(),
               accessAmount: z.coerce.number(),
               createdAt: z.date(),
-            }),
+            })
           ),
         },
       },
     },
     async (_request, reply) => {
-      const result = await getShortenedUrls();
-      const { shortenedUrls } = unwrapEither(result);
+      const result = await getShortenedUrls()
+      const { shortenedUrls } = unwrapEither(result)
 
-      return reply.status(200).send(shortenedUrls);
-    },
-  );
-};
+      return reply.status(200).send(shortenedUrls)
+    }
+  )
+}

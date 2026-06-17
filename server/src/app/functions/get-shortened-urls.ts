@@ -1,7 +1,7 @@
-import { db } from "@/infra/db";
-import { schema } from "@/infra/db/schemas";
-import { makeRight } from "@/shared/either";
-import { desc } from "drizzle-orm";
+import { desc } from 'drizzle-orm'
+import { db } from '@/infra/db'
+import { schema } from '@/infra/db/schemas'
+import { makeRight } from '@/shared/either'
 
 export async function getShortenedUrls() {
   const shortenedUrls = await db
@@ -13,7 +13,7 @@ export async function getShortenedUrls() {
       createdAt: schema.shortenedUrls.createdAt,
     })
     .from(schema.shortenedUrls)
-    .orderBy((fields) => desc(fields.createdAt));
+    .orderBy(fields => desc(fields.createdAt))
 
-  return makeRight({ shortenedUrls });
+  return makeRight({ shortenedUrls })
 }
