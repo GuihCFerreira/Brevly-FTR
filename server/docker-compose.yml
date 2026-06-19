@@ -10,3 +10,9 @@ services:
       - POSTGRES_DB=brevly
     volumes:
       - "./docker:/docker-entrypoint-initdb.d"
+    networks:
+      - brevly-network
+
+networks:
+  brevly-network:
+    external: true

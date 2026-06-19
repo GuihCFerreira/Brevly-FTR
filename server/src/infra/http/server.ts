@@ -1,3 +1,4 @@
+import fastifyCors from '@fastify/cors'
 import { fastifySwagger } from '@fastify/swagger'
 import scalarUI from '@scalar/fastify-api-reference'
 import fastify from 'fastify'
@@ -17,6 +18,8 @@ const server = fastify()
 
 server.setValidatorCompiler(validatorCompiler)
 server.setSerializerCompiler(serializerCompiler)
+
+server.register(fastifyCors, { origin: env.FRONTEND_URL })
 
 server.register(fastifySwagger, {
   openapi: {
@@ -45,7 +48,7 @@ server.register(createShortenedUrlRoute)
 server.register(exportShortenedUrlsReportRoute)
 
 server
-  .listen({ port: env.PORT })
+  .listen({ host: '0.0.0.0', port: env.PORT })
   .then(() => {
     console.log(`Server is running on port ${env.PORT}`)
   })
