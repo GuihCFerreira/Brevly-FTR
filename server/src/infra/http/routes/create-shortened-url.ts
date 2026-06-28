@@ -5,11 +5,11 @@ import { isRight, unwrapEither } from '@/shared/either'
 
 export const createShortenedUrlRoute: FastifyPluginAsyncZod = async server => {
   server.post(
-    '/shortened-urls',
+    '/links',
     {
       schema: {
         summary: 'Create a shortened URL',
-        tags: ['Shortened URLs'],
+        tags: ['Links'],
         body: z.object({
           shortenedUrl: z
             .string()

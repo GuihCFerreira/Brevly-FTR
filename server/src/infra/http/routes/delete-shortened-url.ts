@@ -5,11 +5,11 @@ import { isRight, unwrapEither } from '@/shared/either'
 
 export const deleteShortenedUrlRoute: FastifyPluginAsyncZod = async server => {
   server.delete(
-    '/shortened-urls/:shortenedUrl',
+    '/links/:shortenedUrl',
     {
       schema: {
         summary: 'Delete shortened URL',
-        tags: ['Shortened URLs'],
+        tags: ['Links'],
         params: z.object({
           shortenedUrl: z
             .string()

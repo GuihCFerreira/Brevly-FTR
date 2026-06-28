@@ -25,7 +25,8 @@ server.register(fastifySwagger, {
   openapi: {
     info: {
       title: 'Brev-ly',
-      description: 'API to shorten URLs',
+      description:
+        'Brev-ly is a URL shortening service that allows you to create shortened URLs for your long URLs. It also provides a report of the shortened URLs and their access statistics.',
       version: '1.0.0',
     },
   },
