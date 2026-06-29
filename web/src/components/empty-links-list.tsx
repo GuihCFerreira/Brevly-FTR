@@ -1,10 +1,8 @@
-import { Divider } from "./ui/divider";
-import linkImage from "../public/link.svg";
+import linkImage from "../../public/link.svg";
 
 export function EmptyLinksList() {
   return (
     <div className="flex flex-col gap-4 w-full items-center">
-      <Divider />
       <div className="flex flex-col items-center gap-y-3 w-full pb-6 pt-4">
         <img
           src={linkImage}
