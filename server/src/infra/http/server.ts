@@ -19,7 +19,10 @@ const server = fastify()
 server.setValidatorCompiler(validatorCompiler)
 server.setSerializerCompiler(serializerCompiler)
 
-server.register(fastifyCors, { origin: env.FRONTEND_URL })
+server.register(fastifyCors, {
+  origin: env.FRONTEND_URL,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+})
 
 server.register(fastifySwagger, {
   openapi: {
