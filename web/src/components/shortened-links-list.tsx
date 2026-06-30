@@ -59,9 +59,7 @@ export function ShortenedLinksList() {
 
       <Divider />
 
-      {isFetching && <LinkListLoading />}
-
-      {data.length === 0 && !isFetching && <EmptyLinksList />}
+      {data.length === 0 && (isFetching ? <LinkListLoading /> : <EmptyLinksList />)}
 
       {data.map((link, index) => (
         <Fragment key={link.id}>
