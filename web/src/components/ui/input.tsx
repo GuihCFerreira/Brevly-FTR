@@ -1,14 +1,14 @@
 import { WarningIcon } from '@phosphor-icons/react'
-import { useId, type InputHTMLAttributes } from 'react'
+import { useId, type ComponentProps } from 'react'
 import { cn } from '../../lib/utils'
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends ComponentProps<'input'> {
   label?: string
   error?: string
   prefix?: string
 }
 
-export function Input({ label, error, prefix, className, id, ...props }: InputProps) {
+export function Input({ label, error, prefix, className, id, ref, ...props }: InputProps) {
   const generatedId = useId()
   const inputId = id ?? generatedId
 
@@ -39,6 +39,7 @@ export function Input({ label, error, prefix, className, id, ...props }: InputPr
         )}
         <input
           id={inputId}
+          ref={ref}
           className={cn(
             'w-full bg-transparent text-md text-gray-600 outline-none',
             'placeholder:text-gray-400 focus:text-blue-base caret-blue-base',
