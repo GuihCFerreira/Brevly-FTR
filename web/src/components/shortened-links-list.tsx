@@ -61,7 +61,7 @@ export function ShortenedLinksList() {
       <Divider />
 
       <ScrollArea.Root type="always" className="overflow-hidden">
-        <ScrollArea.Viewport className="max-h-80 md:max-h-150">
+        <ScrollArea.Viewport className="max-h-80 md:max-h-150 [&>div]:block!">
 
           {
             data.length > 0
