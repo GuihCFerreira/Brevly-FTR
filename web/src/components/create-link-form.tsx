@@ -73,7 +73,7 @@ export function CreateLinkForm() {
   return (
     <form
       onSubmit={handleSubmit(handleCreateLink)}
-      className="bg-gray-100 justify-between w-full flex flex-col min-h-79 p-6 gap-5 rounded-lg md:p-8 md:gap-6 md:min-w-80 md:w-1/2 md:min-h-85"
+      className="bg-gray-100 justify-between w-full flex flex-col min-h-79 p-6 gap-5 rounded-lg md:p-8 md:gap-6 md:min-w-80 md:w-1/2 md:max-h-fit"
     >
       <h3 className="font-bold text-lg text-gray-600">Novo link</h3>
 
